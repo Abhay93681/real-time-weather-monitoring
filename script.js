@@ -1,4 +1,4 @@
-
+// ------------ Initialization ------------
 emailjs.init("KuhHITwtnCdhyf2xtY");
 
 const OPENWEATHER_KEY = "f4e451913d4eda3fa11f2f4903fa539a";
@@ -9,7 +9,7 @@ let lastData = null;
 let map = null;
 let marker = null;
 
-
+// ------------ DOM Elements ------------
 const cityInput = document.getElementById("cityInput");
 const searchBtn = document.getElementById("searchBtn");
 const weatherResult = document.getElementById("weatherResult");
@@ -23,6 +23,7 @@ const gpsBtn = document.getElementById("gpsBtn");
 const voiceBtn = document.getElementById("voiceBtn");
 const speakBtn = document.getElementById("speakBtn");
 
+// ------------ Event Listeners ------------
 searchBtn.addEventListener("click", getWeatherData);
 mapBtn.addEventListener("click", toggleMap);
 rainBtn.addEventListener("click", predictRain);
@@ -32,7 +33,7 @@ gpsBtn.addEventListener("click", useMyLocation);
 voiceBtn.addEventListener("click", startVoiceRecognition);
 speakBtn.addEventListener("click", speakWeather);
 
-
+// ------------ Fetch Weather ------------
 async function getWeatherData(coords) {
     let url;
 
@@ -84,7 +85,7 @@ function displayWeather(data) {
     `;
 }
 
-
+// ------------ Rain Prediction ------------
 function predictRain() {
     if (!lastData) return alert("⚠ Search weather first!");
 
@@ -98,7 +99,7 @@ function predictRain() {
     alert(prediction);
 }
 
-
+// ------------ 5-Day Forecast ------------
 async function getForecast() {
     if (!lastData) return alert("⚠ Search weather first!");
 
@@ -124,7 +125,7 @@ async function getForecast() {
     weatherResult.innerHTML += box;
 }
 
-
+// ------------ Alerts ------------
 function weatherAlert(data) {
     const temp = data.main.temp;
     const humidity = data.main.humidity;
@@ -155,7 +156,7 @@ function sendTelegram(alertMsg, data) {
     });
 }
 
-
+// ------------ Map ------------
 function toggleMap() {
     mapDiv.classList.toggle("hidden");
     if (lastData) loadMap(lastData.coord.lat, lastData.coord.lon);
@@ -172,7 +173,7 @@ function loadMap(lat, lon) {
     }
 }
 
-
+// ------------ Animation ------------
 function showWeatherAnimation(type) {
     animDiv.innerHTML = type.includes("Rain") ?
         "🌧" :
@@ -183,18 +184,19 @@ function showWeatherAnimation(type) {
         "⛅";
 }
 
-
+// ------------ Dark Mode ------------
 function toggleDark(e) {
     document.body.classList.toggle("dark", e.target.checked);
 }
 
-
+// ------------ GPS ------------
 function useMyLocation() {
     navigator.geolocation.getCurrentPosition(pos =>
         getWeatherData({ lat: pos.coords.latitude, lon: pos.coords.longitude })
     );
 }
 
+// ------------ Voice Recognition ------------
 function startVoiceRecognition() {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     const recog = new SpeechRecognition();
@@ -207,7 +209,7 @@ function startVoiceRecognition() {
     };
 }
 
-
+// ------------ Speaking ------------
 function speakWeather() {
     if (!lastData) return alert("Search first!");
 
