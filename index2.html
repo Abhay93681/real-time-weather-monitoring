@@ -1,1 +1,54 @@
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Smart IoT Weather System (Voice · Dark · Anim · GPS)</title>
+
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="style2.css" />
+</head>
+
+<body>
+    <img src="hero1.jpg" class="background-image" alt="bg">
+
+    <div class="topbar">
+        <div class="title">🌦 Smart IoT Weather</div>
+        <div class="controls">
+            <label class="switch"><input id="darkToggle" type="checkbox"><span class="slider"></span></label>
+            <button id="voiceBtn" class="small">🎙️ Voice</button>
+            <button id="gpsBtn" class="small">📍 Use My Location</button>
+        </div>
+    </div>
+
+    <main class="weather-container">
+        <div class="search-row">
+            <input id="cityInput" placeholder="Enter city name or say 'Weather in Delhi'" />
+            <button id="searchBtn">Get Weather</button>
+        </div>
+
+        <div id="weatherResult" class="result hidden"></div>
+
+        <div class="action-row">
+            <button id="mapBtn">🗺️ Map</button>
+            <button id="rainBtn">🌧 Rain Prediction</button>
+            <button id="forecastBtn">⏳ Forecast (basic)</button>
+            <button id="speakBtn">🔊 Speak</button>
+        </div>
+
+        
+        <div id="anim" class="anim hidden"></div>
+
+        
+        <div id="map" class="map hidden"></div>
+    </main>
+    
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="script4.js"></script>
+</body>
+
+</html>
