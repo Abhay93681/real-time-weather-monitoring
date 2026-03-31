@@ -1,4 +1,4 @@
-
+/* Basic + Dark mode + Animations */
 
 :root {
     --bg1: linear-gradient(135deg, #4facfe, #00f2fe);
@@ -23,7 +23,7 @@ body {
 }
 
 
-
+/* background image */
 
 .background-image {
     position: fixed;
@@ -36,6 +36,7 @@ body {
 }
 
 
+/* topbar */
 
 .topbar {
     width: 100%;
@@ -60,7 +61,7 @@ body {
 }
 
 
-
+/* small btn */
 
 .small {
     padding: 8px 10px;
@@ -71,6 +72,8 @@ body {
     cursor: pointer
 }
 
+
+/* container */
 
 .weather-container {
     width: 360px;
@@ -84,6 +87,7 @@ body {
 }
 
 
+/* search */
 
 .search-row {
     display: flex;
@@ -108,7 +112,7 @@ body {
 }
 
 
-
+/* result */
 
 .result {
     margin-top: 14px;
@@ -124,7 +128,7 @@ body {
 }
 
 
-
+/* action row */
 
 .action-row {
     display: flex;
@@ -144,7 +148,7 @@ body {
 }
 
 
-
+/* map */
 
 .map {
     height: 360px;
@@ -155,7 +159,7 @@ body {
 }
 
 
-
+/* Animated icon area */
 
 .anim {
     height: 120px;
@@ -247,6 +251,7 @@ body {
 }
 
 
+/* Dark mode */
 
 body.dark {
     --bg1: linear-gradient(135deg, #0f1724, #0b1220);
@@ -299,7 +304,7 @@ body.dark {
 }
 
 
-
+/* responsive */
 
 @media(max-width:420px) {
     .weather-container {
