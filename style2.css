@@ -1,0 +1,312 @@
+
+
+:root {
+    --bg1: linear-gradient(135deg, #4facfe, #00f2fe);
+    --card-bg: rgba(255, 255, 255, 0.15);
+    --text: #fff;
+    --muted: rgba(255, 255, 255, 0.85);
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    font-family: Poppins, system-ui, Arial;
+    min-height: 100vh;
+    background: var(--bg1);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+
+.background-image {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    filter: brightness(0.5);
+}
+
+
+
+.topbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 24px;
+    max-width: 980px;
+    margin: 12px;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: 700;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2)
+}
+
+.controls {
+    display: flex;
+    gap: 8px;
+    align-items: center
+}
+
+
+
+
+.small {
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--text);
+    cursor: pointer
+}
+
+
+.weather-container {
+    width: 360px;
+    margin: 10px auto;
+    padding: 18px;
+    border-radius: 16px;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+    text-align: center;
+}
+
+
+
+.search-row {
+    display: flex;
+    gap: 8px
+}
+
+#cityInput {
+    flex: 1;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none
+}
+
+#searchBtn {
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: none;
+    background: #007bff;
+    color: #fff;
+    cursor: pointer
+}
+
+
+
+
+.result {
+    margin-top: 14px;
+    background: rgba(0, 0, 0, 0.25);
+    padding: 12px;
+    border-radius: 12px;
+    color: var(--muted);
+    text-align: left
+}
+
+.hidden {
+    display: none
+}
+
+
+
+
+.action-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 12px
+}
+
+.action-row button {
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(0, 0, 0, 0.25);
+    color: var(--text);
+    cursor: pointer
+}
+
+
+
+
+.map {
+    height: 360px;
+    margin-top: 14px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3)
+}
+
+
+
+
+.anim {
+    height: 120px;
+    margin-top: 14px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.sun {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #fff176, #ff9800);
+    box-shadow: 0 0 40px #ff9800
+}
+
+.cloud {
+    width: 140px;
+    height: 60px;
+    border-radius: 60px;
+    background: #ffffff55;
+    position: relative;
+    filter: blur(.5px)
+}
+
+.cloud:before,
+.cloud:after {
+    content: "";
+    position: absolute;
+    background: #ffffff55;
+    border-radius: 50%
+}
+
+.cloud:before {
+    width: 70px;
+    height: 70px;
+    left: -30px;
+    top: -30px
+}
+
+.cloud:after {
+    width: 90px;
+    height: 90px;
+    right: -20px;
+    top: -40px
+}
+
+.rain {
+    position: relative;
+    height: 80px;
+    width: 120px
+}
+
+.drop {
+    position: absolute;
+    width: 4px;
+    height: 12px;
+    background: linear-gradient(#9be, #06f);
+    border-radius: 2px;
+    left: 20px;
+    top: 20px;
+    animation: fall 0.8s linear infinite
+}
+
+.drop:nth-child(2) {
+    left: 50px;
+    animation-delay: 0.2s
+}
+
+.drop:nth-child(3) {
+    left: 80px;
+    animation-delay: 0.4s
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-10px);
+        opacity: 0
+    }
+    50% {
+        opacity: 1
+    }
+    100% {
+        transform: translateY(30px);
+        opacity: 0
+    }
+}
+
+
+
+body.dark {
+    --bg1: linear-gradient(135deg, #0f1724, #0b1220);
+    --card-bg: rgba(255, 255, 255, 0.04);
+    --text: #e6eef8;
+    --muted: #cfe6ff;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 46px;
+    height: 26px
+}
+
+.switch input {
+    display: none
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #ccc;
+    border-radius: 34px;
+    transition: .3s
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background: white;
+    border-radius: 50%;
+    transition: .3s
+}
+
+.switch input:checked+.slider {
+    background: #4caf50
+}
+
+.switch input:checked+.slider:before {
+    transform: translateX(20px)
+}
+
+
+
+
+@media(max-width:420px) {
+    .weather-container {
+        width: 92%;
+        padding: 14px
+    }
+    .map {
+        height: 280px
+    }
+}
